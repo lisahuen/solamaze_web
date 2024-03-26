@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const SvgUpdater = () => {
+const MazeUpdaterUpdater = () => {
   const [svgData, setSvgData] = useState('');
   const [moveDirection, setMoveDirection] = useState('X');
   const [moveAddr, setMoveAddr] = useState('');
@@ -64,13 +64,29 @@ const SvgUpdater = () => {
     return () => clearInterval(interval);
   }, []);
 
+
+  // const firstDigits = str.slice(0, 5);
+  // const lastDigits = str.slice(-3);
+  
+  // return firstDigits + '...' + lastDigits;
+
   return (
     <div>
       {console.log(svgData)}
-       {moveDirection}          
-      <div dangerouslySetInnerHTML={{ __html: svgData }} />
+      <div id="move-info-container" style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <div style={{ textAlign: 'left' }}>
+        <div className='title'>Move Direction:</div> {moveDirection}
+      </div>
+      <div style={{ textAlign: 'center' }}>
+      <div className='title'>Signature:</div>  {moveSgn.slice(0, 20) +'......'+moveSgn.slice(-5)}
+      </div>
+      <div style={{ textAlign: 'right' }}>
+      <div className='title'>By:</div> {moveAddr.slice(0, 5) +'......'+moveAddr.slice(-5)}
+      </div>
+    </div>
+      <div  dangerouslySetInnerHTML={{ __html: svgData }} />
     </div>
   );
 };
 
-export default SvgUpdater;
+export default MazeUpdaterUpdater;

@@ -1,6 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
-// import ImageSlider from './Component/ImageSlider/ImageSlider.js';
-import SvgUpdater from './Component/SvgUpdater/SvgUpdater.js';
+import MazeUpdaterUpdater from './Component/SvgUpdater/MazeUpdater.js';
 
 
 function App() {
@@ -9,9 +8,11 @@ function App() {
   return (
     <div>
       
-    <p>123</p>
-    <SvgUpdater />
-
+      <h1>Maze Runner in Solana</h1>
+        <div id="maze-container">
+        <MazeUpdaterUpdater />
+        </div>
+      
     </div>
   );
 }
