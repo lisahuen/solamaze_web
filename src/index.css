@@ -39,6 +39,33 @@ h1 {
   padding-top: 3rem;
 }
 
+.win-history-container{
+
+  border-radius: 6px;  
+  max-width: 65rem;
+  margin: 1rem auto;
+  padding: 2rem;
+  background: linear-gradient(#383624, #282617);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  position: relative;
+  color: #ebe7ef;
+  /* font-family: 'Caprasimo', cursive; */
+  align-content: center;  
+  text-align: center;
+  
+
+}
+.win-history-table{
+  align-content: center;
+
+  
+}
+
+.table-container {
+  display: flex;
+  justify-content: center;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -54,17 +81,23 @@ code {
   position: relative;
 }
 
-#move-info-container {
-  border: 2px solid transparent;
-  max-width: 60rem;
-  margin: 2rem auto;
-  padding: 0.5rem;
-  border-radius: 4px;  
-  border-color: #f6e35a;
-  animation: pulse 0.5s infinite ease-in-out;
-}
 
 .title {
 
   font-weight: bold;
+}
+
+.image-logo {
+  margin: 0 auto 2rem auto;    
+  display: 'flex';
+  align-content: 'center';  
+  height: '100vh';
+  max-width: 20rem;
+  padding-top: 3rem;
+
+}
+
+.arrow-icon {
+  width: 30px;
+  height: 30px;
 }

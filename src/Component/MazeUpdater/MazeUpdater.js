@@ -1,21 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './MazeUpdater.css'; // Import CSS file for component styles
 
-const MazeUpdaterUpdater = () => {
+import arrowUpIcon from '../../images/arrow-up.png';
+import arrowDownIcon from '../../images/arrow-down.png';
+import arrowLeftIcon from '../../images/arrow-left.png';
+import arrowRightIcon from '../../images/arrow-right.png';
+
+const MazeUpdater = () => {
   const [svgData, setSvgData] = useState('');
   const [moveDirection, setMoveDirection] = useState('X');
   const [moveAddr, setMoveAddr] = useState('');
   const [moveSgn, setMoveSgn] = useState('');
   const [successMove, setSuccessMove] = useState('');
-//   const [goal, setGoal] = useState(1);
+  const [fadeEffect, setFadeEffect] = useState(false); // State for fade effect
+
 
   let var_maze_id ='';
 
-  
   useEffect(() => {
-    
-    
-
+  
   let var_tran_id = 0;
   let var_goal =1;
    
@@ -45,6 +49,7 @@ const MazeUpdaterUpdater = () => {
         // setGoal(goal);
         var_goal = goal
         
+        setFadeEffect(true); // Trigger fade-in effect
         
         var_tran_id ++;
 
@@ -65,18 +70,27 @@ const MazeUpdaterUpdater = () => {
   }, []);
 
 
-  // const firstDigits = str.slice(0, 5);
-  // const lastDigits = str.slice(-3);
-  
-  // return firstDigits + '...' + lastDigits;
-
   return (
-    <div>
-      {console.log(svgData)}
-      <div id="move-info-container" style={{ display: 'flex', justifyContent: 'space-between' }}>
+    <div>      
+      <div
+        id="move-info-container"
+        // 
+        style={{ display: 'flex', justifyContent: 'space-between' }}
+      >
       <div style={{ textAlign: 'left' }}>
-        <div className='title'>Move Direction:</div> {moveDirection}
-      </div>
+      <div className='title'>Move Direction:</div>
+        <div
+          className={fadeEffect ? 'fade-in' : ''} 
+          onAnimationEnd={() => setFadeEffect(false)} 
+        >
+        {moveDirection === 'N' && <img src={arrowUpIcon} alt='Up' className='arrow-icon' />}
+        {moveDirection === 'S' && <img src={arrowDownIcon} alt='Down' className='arrow-icon' />}
+        {moveDirection === 'W' && <img src={arrowLeftIcon} alt='Left' className='arrow-icon' />}
+        {moveDirection === 'E' && <img src={arrowRightIcon} alt='Right' className='arrow-icon' />}
+        {moveDirection !== 'N' && moveDirection !== 'S' && moveDirection !== 'W' && moveDirection !== 'E' && moveDirection}
+
+        </div>
+    </div>
       <div style={{ textAlign: 'center' }}>
       <div className='title'>Signature:</div>  {moveSgn.slice(0, 20) +'......'+moveSgn.slice(-5)}
       </div>
@@ -89,4 +103,4 @@ const MazeUpdaterUpdater = () => {
   );
 };
 
-export default MazeUpdaterUpdater;
+export default MazeUpdater;
