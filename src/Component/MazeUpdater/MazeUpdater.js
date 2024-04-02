@@ -12,7 +12,6 @@ import arrowLeftIconG from '../../images/arrow-left-g.png';
 import arrowRightIconG from '../../images/arrow-right-g.png';
 import Goal from '../Goal/Goal.js';
 
-
 const MazeUpdater = (props) => {
   const [svgData, setSvgData] = useState('');
   const [moveDirection, setMoveDirection] = useState('X');
@@ -25,17 +24,6 @@ const MazeUpdater = (props) => {
   
 
   let var_maze_id ='';
-
-  // const [specificVariable, setSpecificVariable] = useState('');
-
-  // useEffect(() => {
-  //   // Example code to update the specific variable
-  //   const updateSpecificVariable = () => {
-  //     const newValue = 'new value'; // Update the specific variable with the desired value
-  //     setSpecificVariable(newValue);
-  //     props.onSpecificVariableUpdate(newValue); // Call the onSpecificVariableUpdate function from props to trigger the update in the parent component
-  //   };
-  // });
 
   useEffect(() => {
   
@@ -92,7 +80,7 @@ const MazeUpdater = (props) => {
     
      if (!isModalOpen) {
       fetchData();
-      const interval = setInterval(fetchData, 1000);
+      const interval = setInterval(fetchData, 1500);
       return () => clearInterval(interval);
     }
 
@@ -110,9 +98,8 @@ const MazeUpdater = (props) => {
   return (
     <div>      
       
-      {/* <Gox`al winner_addr={moveAddr}></Goal> */}
       <div>
-      <button onClick={openModal}>Open Modal</button>
+      {/* <button onClick={openModal}>Open Modal</button> */}
       <Goal isOpen={isModalOpen} onClose={closeModal}>
         <h2>Congratulations</h2>
         <h3>Winner: {moveAddr.slice(0, 5) +'......'+moveAddr.slice(-5)} </h3>
@@ -156,8 +143,7 @@ const MazeUpdater = (props) => {
       <div className='title'>By:</div> {moveAddr.slice(0, 5) +'......'+moveAddr.slice(-5)}
       </div>
     </div>
-      <div  dangerouslySetInnerHTML={{ __html: svgData }} />
-
+      <div  dangerouslySetInnerHTML={{ __html: svgData }} />      
       </>
     </div>
   );

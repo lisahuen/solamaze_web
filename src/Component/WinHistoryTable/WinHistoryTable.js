@@ -39,8 +39,8 @@ const WinHistoryTable = ({ historyUpdateTrigger, goalIndicator }) => {
           <tr key={index}>
             <td>{item.finish_dt}</td>
              <td>{item.move}</td>
-            <td>{item.winner_addr.slice(0, 15) + '......' + item.winner_addr.slice(-5)}</td>
-            <td>{item.winner_sgn.slice(0, 30) + '......' + item.winner_sgn.slice(-5)}</td>
+            <td>{item.winner_addr.slice(0, 15) + '......' + item.winner_addr.slice(-5)+'           '}</td>
+            <td>{item.winner_sgn.slice(0, 30) + '......' + item.winner_sgn.slice(-5)}</td> 
           </tr>
         ))}
       </tbody>
