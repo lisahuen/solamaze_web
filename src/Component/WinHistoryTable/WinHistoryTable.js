@@ -2,22 +2,24 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 
-const WinHistoryTable = () => {
+const WinHistoryTable = ({ historyUpdateTrigger, goalIndicator }) => {
   const [winHistory, setWinHistory] = useState([]);
+
+
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.post('http://localhost:5000/api/getWinHistory');
         const data = await response.data;
-        console.log(data)
+        
         setWinHistory(data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
     fetchData();
-  }, []);
+  }, [goalIndicator]);
 
   return (
     <div className="win-history-container">

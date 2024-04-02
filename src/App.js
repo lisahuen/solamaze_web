@@ -7,6 +7,7 @@ import WinHistoryTable from './Component/WinHistoryTable/WinHistoryTable.js'
 
 function App() {
 
+  
   const Logo = () => {
     return (
       <div className="image-logo">
@@ -15,16 +16,37 @@ function App() {
       </div>
     );
   };
-  
+
+
+  const [historyUpdateTrigger, setHistoryUpdateTrigger] = useState(0);
+  const [goalIndicator, setGoalIndicator] = useState('');
+
+  const updateHistory = () => {
+    setHistoryUpdateTrigger((prevTrigger) => prevTrigger + 1);
+  };
+
+  const updateGoalIndicator = (newValue) => {
+    setGoalIndicator(newValue);
+  };
+
+
   return (
     <div>
       
       {/* <h1>Maze Runner in Solana</h1> */}
         <Logo/>
-        <div id="maze-container">
-         <MazeUpdater/> 
+
+        
+        <div id="maze-container">      
+         <MazeUpdater onHistoryUpdate={updateHistory} onGoalIndicatorUpdate={updateGoalIndicator} />
         </div>
-        <WinHistoryTable/>
+  
+        <WinHistoryTable
+        historyUpdateTrigger={historyUpdateTrigger}
+        goalIndicator={goalIndicator}
+      />
+
+        
       
     </div>
   );
